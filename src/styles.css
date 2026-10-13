@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #0c0d0e;
+  --color-surface: #141516;
+  --color-raised: #1c1e20;
+  --color-fg: #eceae4;
+  --color-muted: #a39e94;
+  --color-subtle: #746f68;
+  --color-border: #2c2e30;
+  --color-accent: #e8e6e1;
+  --color-accent-fg: #141516;
+  --color-up: #8eae8a;
+  --color-down: #c4847c;
+  --color-line: #8a93a0;
+  --font-sans: "IBM Plex Sans", "Segoe UI", sans-serif;
+  --font-display: "Newsreader", Georgia, serif;
+  --radius-card: 1.5rem;
+  --radius-control: 0.5rem;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    background: var(--color-bg);
+    color: var(--color-fg);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    min-height: 100vh;
+    background: var(--color-bg);
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-accent-fg);
+  }
+}
+
+@layer components {
+  .range {
+    appearance: none;
+    height: 2px;
+    width: 100%;
+    border-radius: 999px;
+    background: var(--color-border);
+    accent-color: var(--color-accent);
+  }
+
+  .range::-webkit-slider-thumb {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 999px;
+    background: var(--color-accent);
+    border: 2px solid var(--color-bg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
